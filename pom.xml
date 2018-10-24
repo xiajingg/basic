@@ -24,6 +24,7 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <!--上面先不介绍, 这里面是 需要的jar包, 后续自然会懂, 先不详细介绍-->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

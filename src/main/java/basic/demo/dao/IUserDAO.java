@@ -5,7 +5,7 @@ import basic.demo.po.UserPO;
 import java.util.List;
 
 /**
- * dao是接口层, 接口只定义规范,不定义怎样实现,所以下面没有写内容, 并且在16行定义的时候是interface 不是 class
+ * dao是接口层, 接口只定义规范,不定义怎样实现,所以下面没有写内容, 并且在20行定义的时候是interface(接口) 不是 class
  * 命名规范 开头大写I 最后大写DAO结尾, 每个方法只能做一件事情
  * 比如 save增加 listUser查询所有user表的数据
  * 去看application.yml下的 8 9 10行 url username password
