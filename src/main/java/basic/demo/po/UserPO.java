@@ -8,7 +8,7 @@ package basic.demo.po;
  *
  *  最后方法要生成 get和set (有快捷键, 如果不知道 就把后面这句贴到百度 : idea自动生成get set 方法的快捷键)
  *
- *  看完后去看 dao文件夹
+ *  看完后去看 dao文件夹.
  */
 public class UserPO {
 
