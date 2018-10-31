@@ -1,12 +1,18 @@
 package basic.demo.controller;
 
+import basic.demo.po.NoteDTO;
 import basic.demo.po.NotePO;
+import basic.demo.po.UUIDHelper;
 import basic.demo.service.INoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,5 +41,34 @@ public class NoteController {
         List<NotePO> notePOS=noteService.listNote();
         map.put("notePOS",notePOS);
         return new ModelAndView("/note");
+    }
+
+
+
+    @GetMapping(value = "createNote")
+    public ModelAndView createNote(Map map){
+        return new ModelAndView("/createNote");
+    }
+
+    @PostMapping(value = "doCreateNote")
+    public Map doCreateNote(NoteDTO noteDTO){
+        Map map=new HashMap();
+        NotePO notePO=new NotePO();
+        notePO.setId(UUIDHelper.getUUID32());
+        notePO.setTitle(noteDTO.getTitle());
+        notePO.setTime(noteDTO.getTime());
+        notePO.setUserid(noteDTO.getName());
+        notePO.setText(noteDTO.getText());
+        noteService.save(notePO);
+        map.put("data","ok");
+        return map;
+
+    }
+
+    @GetMapping(value = "noteDetail")
+    public ModelAndView noteDetail(Map map, @RequestParam(value = "id")String id){
+//        NotePO notePO=noteService.getNote(id);
+//        map.put("notePO",notePO);
+        return new ModelAndView("/noteDetail");
     }
 }

@@ -2,12 +2,21 @@
 server:
   port: 8080
 
-#数据库相关配置 后续再说  看完再返回UserController
 spring:
+  application:
+    name: basic
+  profiles:
+    active:
+  # 把static的默认路径放在resources下, 把静态文件放在static文件夹下, 这样权限控制过滤静态文件的时候直接过滤static就好了
+  resources:
+    static-locations: classpath:/
+
+
+#数据库相关配置 后续再说  看完再返回UserController
   datasource:
     url: jdbc:mysql://localhost:3306/demo?autoReconnect=true&failOverReadOnly=false&useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: pu359102
+    password: xj663812
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
