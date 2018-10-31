@@ -2,6 +2,7 @@ package basic.demo.service.impl;
 
 
 import basic.demo.dao.INoteDAO;
+import basic.demo.po.NoteDTO;
 import basic.demo.po.NotePO;
 import basic.demo.service.INoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class NoteServiceImpl implements INoteService {
     }
 
     @Override
-    public List<NotePO> listNote() {
-        return noteDAO.listNote();
+    public List<NotePO> listNote(NoteDTO noteDTO) {
+        return noteDAO.listNote(noteDTO);
     }
 }

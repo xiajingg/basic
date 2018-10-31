@@ -1,5 +1,6 @@
 package basic.demo.service;
 
+import basic.demo.po.NoteDTO;
 import basic.demo.po.NotePO;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface INoteService {
 
     int save(NotePO notePO);
 //这个到底是 user还是note  note 那你interface这边写 user, impl那边又写note
-    List<NotePO> listNote();
+    List<NotePO> listNote(NoteDTO noteDTO);
 }

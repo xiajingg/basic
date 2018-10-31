@@ -38,7 +38,7 @@ public class NoteController {
      */
     @GetMapping(value = "listnote")
     public ModelAndView listNote(Map map){
-        List<NotePO> notePOS=noteService.listNote();
+        List<NotePO> notePOS=noteService.listNote(new NoteDTO());
         map.put("notePOS",notePOS);
         return new ModelAndView("/note");
     }
@@ -67,8 +67,10 @@ public class NoteController {
 
     @GetMapping(value = "noteDetail")
     public ModelAndView noteDetail(Map map, @RequestParam(value = "id")String id){
-//        NotePO notePO=noteService.getNote(id);
-//        map.put("notePO",notePO);
+        NoteDTO noteDTO=new NoteDTO();
+        noteDTO.setId(id);
+        NotePO notePO=noteService.listNote(noteDTO).get(0);
+        map.put("notePO",notePO);
         return new ModelAndView("/noteDetail");
     }
 }
