@@ -3,6 +3,7 @@ package basic.demo.service.impl;
 
 import basic.demo.dao.IQuestionDAO;
 import basic.demo.po.QuestionPO;
+import basic.demo.service.IQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.List;
  *
  */
 @Service
-public class QuestionServiceImpl implements IQuestionDAO {
+public class QuestionServiceImpl implements IQuestionService {
 
     @Autowired
     private IQuestionDAO questionDAO;
