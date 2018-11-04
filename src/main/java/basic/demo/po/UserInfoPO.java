@@ -24,6 +24,16 @@ public class UserInfoPO {
     private String sortno;
     private String state;
 
+    public String getUserPwd() {
+        return userPwd;
+    }
+
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd;
+    }
+
+
+
     public String getId() {
         return id;
     }
@@ -48,13 +58,7 @@ public class UserInfoPO {
         this.userName = userName;
     }
 
-    public String getUserPwd() {
-        return userPwd;
-    }
 
-    public void setUserPwd(String userPwd) {
-        this.userPwd = userPwd;
-    }
 
     public String getRemark() {
         return remark;

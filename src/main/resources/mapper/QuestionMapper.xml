@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--最上面 1,2行直接复制-->
+
+<!--     这行标识 这个Mapper和那个dao关联 -->
+<mapper namespace="basic.demo.dao.IQuestionDAO">
+
+    <!-- insert插入方法  id是什么, dao里面的方法名就是什么, 这里id是 save, dao里面肯定也有一个save方法-->
+    <!-- 里面的 insert into 语句是sql语句  后面的values就这么写, 比如你穿过来id是1 这个#{id} 就是1 保存到数据库去-->
+    <insert id="save" useGeneratedKeys="true" parameterType="basic.demo.po.QuestionPO">
+             insert into question(id,qid,title,text,qtime,rid,rcontent,rtime)
+                    values(#{id},#{qid},#{title},#{text},#{qtime},#{rid},#{rcontent},#{rtime})
+    </insert>
+
+    <!--select查询方法 同样 id listUser
+         resultMap : 查询后数据库会返回你查出来的东西给你, 这个时候你就得用一个东西去接收 ,这里用UserMap接收, 就是最下面一块 -->
+    <select id="listQuestion" resultMap="QuestionMap">
+        SELECT * FROM question;
+    </select>
+
+    <!-- 这里的 id, 就是给上面用的id . 如果里面你少些了一个. 比如少写了email, 数据库虽然会返回给你, 但是你最后是看不到的-->
+    <!-- 看完后 到service 文件夹下的 IUserService-->
+    <resultMap id="QuestionMap" type="basic.demo.po.QuestionPO">
+        <result property="id" column="id" />
+        <result property="qid" column="qid" />
+        <result property="title" column="title" />
+        <result property="text" column="text" />
+        <result property="qtime" column="qtime" />
+        <result property="rid" column="rid" />
+        <result property="rcontent" column="rcontent" />
+        <result property="rtime" column="rtime" />
+    </resultMap>
+</mapper>
