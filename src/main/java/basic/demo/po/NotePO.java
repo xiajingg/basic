@@ -1,11 +1,13 @@
 package basic.demo.po;
 
+import java.util.Date;
+
 public class NotePO {
 
     private String id;
     private String title;
     private String text;
-    private String time;
+    private Date time;
     private String userid;
 
     public String getId() {
@@ -32,11 +34,11 @@ public class NotePO {
         this.text = text;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

@@ -1,5 +1,7 @@
 package basic.demo.po;
 
+import java.util.Date;
+
 public class NoteDTO {
 
     private String id;
@@ -14,7 +16,7 @@ public class NoteDTO {
 
     private String title;
     private String name;
-    private String time;
+    private Date time;
     private String text;
 
     public String getTitle() {
@@ -33,11 +35,11 @@ public class NoteDTO {
         this.name = name;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

@@ -30,19 +30,13 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Title :</label>
                                             <div class="col-md-9 col-form-label">
-                                                <input type="text" name="title" style="width: 100%;" placeholder="please input title">
+                                                <input type="text" name="title" style="width: 100%;" placeholder="please input title" maxlength="200">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">name :</label>
                                             <div class="col-md-9 col-form-label">
                                                 <input type="text" name="name" style="width: 100%;" placeholder="please input your name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Date :</label>
-                                            <div class="col-md-9 col-form-label">
-                                                <input type="text" name="time" style="width: 100%;" readonly value="${.now?string["yyyy-MM-dd HH:mm:ss"]}">
                                             </div>
                                         </div>
                                         <div class="form-group row">

@@ -2,11 +2,20 @@ package basic.demo.controller;
 
 import basic.demo.po.UserPO;
 import basic.demo.service.IUserService;
+import org.apache.commons.collections.MapUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,5 +44,34 @@ public class UserController {
         List<UserPO> userPOS=userService.listUser();
         map.put("userPOS",userPOS);
         return new ModelAndView("/user");
+    }
+
+    @GetMapping(value = "login")
+    public ModelAndView login(){
+        return new ModelAndView("login");
+    }
+
+    @PostMapping(value = "dologin")
+    public Map dologin(@RequestParam(value = "userCode")String userCode,@RequestParam(value = "userPwd")String userPwd){
+        Map map = new HashMap();
+        // shiro认证
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(userCode, userPwd);
+        try {
+            subject.login(token);
+        } catch (Exception e) {
+            map.put("code","false");
+            return map;
+        }
+        String res = subject.getPrincipals().toString();
+        if (subject.hasRole("admin")) {
+            res = res + "----------你拥有admin权限";
+        }
+        if (subject.hasRole("guest")) {
+            res = res + "----------你拥有guest权限";
+        }
+//        reJson.setData(res);
+        map.put("code","false");
+        return map;
     }
 }

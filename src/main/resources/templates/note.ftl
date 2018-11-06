@@ -36,14 +36,13 @@
             <div class="animated fadeIn">
                 <div class="row">
                     <div class="col-lg-12">
-
                         <div class="card">
                             <#list notePOS as notePO>
                                 <a href="/noteDetail?id=${notePO.id}">
                                     <div class="card-header">
-                                        <strong>${notePO.title}</strong>
-                                        <strong style="float: right">${notePO.time} / ${notePO.userid}</strong>
+                                        <strong>${notePO.time?string("yyyy-MM-dd")} / ${notePO.title} / ${notePO.userid}</strong>
                                     </div>
+
                                 </a>
                             </#list>
                         </div>

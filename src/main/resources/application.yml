@@ -1,6 +1,6 @@
 #定义服务端口号
 server:
-  port: 8080
+  port: 80
 
 spring:
   application:
@@ -14,9 +14,9 @@ spring:
 
 #数据库相关配置 后续再说  看完再返回UserController
   datasource:
-    url: jdbc:mysql://localhost:3306/demo?autoReconnect=true&failOverReadOnly=false&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://47.101.53.92:3306/basic?autoReconnect=true&failOverReadOnly=false&useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: pu359102
+    password: 19941111
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:

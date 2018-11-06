@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +57,7 @@ public class NoteController {
         NotePO notePO=new NotePO();
         notePO.setId(UUIDHelper.getUUID32());
         notePO.setTitle(noteDTO.getTitle());
-        notePO.setTime(noteDTO.getTime());
+        notePO.setTime(new Date());
         notePO.setUserid(noteDTO.getName());
         notePO.setText(noteDTO.getText());
         noteService.save(notePO);

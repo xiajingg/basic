@@ -28,27 +28,27 @@
                                 <div class="card-body">
                                     <form class="form-horizontal" id="cipherdata" >
                                         <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Title :</label>
+                                            <label class="col-md-1 col-form-label">Title :</label>
                                             <div class="col-md-9 col-form-label">
-                                                <input type="text" name="title" style="width: 100%;" placeholder="please input title" value="${notePO.title}">
+                                            ${notePO.title}
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">name :</label>
+                                            <label class="col-md-1 col-form-label">name :</label>
                                             <div class="col-md-9 col-form-label">
-                                                <input type="text" name="name" style="width: 100%;" placeholder="please input your name" value="${notePO.userid}">
+                                            ${notePO.userid}
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Date :</label>
+                                            <label class="col-md-1 col-form-label">Date :</label>
                                             <div class="col-md-9 col-form-label">
-                                                <input type="text" name="time" style="width: 100%;" readonly value="${notePO.time}">
+                                            ${notePO.time?string("yyyy-MM-dd HH:mm:ss")}
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">plaintext :</label>
+                                            <label class="col-md-1 col-form-label">plaintext :</label>
                                             <div class="col-md-9 col-form-label">
-                                                <textarea style="width: 100%;height: 150px" id="text" name="text" placeholder="text">${notePO.text}</textarea>
+                                                ${notePO.text}
                                             </div>
                                         </div>
                                         <#--<div class="form-group row">-->
