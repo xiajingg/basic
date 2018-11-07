@@ -1,5 +1,6 @@
 package basic.demo.dao;
 
+import basic.demo.po.UserDTO;
 import basic.demo.po.UserPO;
 
 import java.util.List;
@@ -26,5 +27,5 @@ public interface IUserDAO {
      */
     int save(UserPO userPO);
 
-    List<UserPO> listUser();
+    List<UserPO> listUser(UserDTO userDTO);
 }

@@ -1,5 +1,6 @@
 package basic.demo.controller;
 
+import basic.demo.po.UserDTO;
 import basic.demo.po.UserPO;
 import basic.demo.service.IUserService;
 import org.apache.commons.collections.MapUtils;
@@ -41,7 +42,7 @@ public class UserController {
      */
     @GetMapping(value = "listuser")
     public ModelAndView listUser(Map map){
-        List<UserPO> userPOS=userService.listUser();
+        List<UserPO> userPOS=userService.listUser(new UserDTO());
         map.put("userPOS",userPOS);
         return new ModelAndView("/user");
     }

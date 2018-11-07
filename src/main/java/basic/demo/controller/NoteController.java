@@ -24,6 +24,7 @@ import java.util.Map;
 public class NoteController {
 
     @Autowired
+//    私有    类名         定义的名称
     private INoteService noteService;
 
     /**
@@ -34,44 +35,46 @@ public class NoteController {
      * listuser 是 下面GetMapping 定义的 path(路径)
      * 最后 return new ModelAndView("/user");  他回去 resources文件夹下的 templates文件夹下 去找一个 user 的ftl文件(其实就是html文件)
      * 看完后去 WebApplication
+     *
      * @param map
      * @return
      */
     @GetMapping(value = "listnote")
-    public ModelAndView listNote(Map map){
-        List<NotePO> notePOS=noteService.listNote(new NoteDTO());
-        map.put("notePOS",notePOS);
+    //公有    返回值         方法名    参数
+    public ModelAndView listNote(Map map) {
+//       ren puyajing = nvren
+        List<NotePO> notePOS = noteService.listNote(new NoteDTO());
+        map.put("notePOS", notePOS);
         return new ModelAndView("/note");
     }
 
 
-
     @GetMapping(value = "createNote")
-    public ModelAndView createNote(Map map){
+    public ModelAndView createNote(Map map) {
         return new ModelAndView("/createNote");
     }
 
     @PostMapping(value = "doCreateNote")
-    public Map doCreateNote(NoteDTO noteDTO){
-        Map map=new HashMap();
-        NotePO notePO=new NotePO();
+    public Map doCreateNote(NoteDTO noteDTO) {
+        Map map = new HashMap();
+        NotePO notePO = new NotePO();
         notePO.setId(UUIDHelper.getUUID32());
         notePO.setTitle(noteDTO.getTitle());
         notePO.setTime(new Date());
         notePO.setUserid(noteDTO.getName());
         notePO.setText(noteDTO.getText());
         noteService.save(notePO);
-        map.put("data","ok");
+        map.put("data", "ok");
         return map;
 
     }
 
     @GetMapping(value = "noteDetail")
-    public ModelAndView noteDetail(Map map, @RequestParam(value = "id")String id){
-        NoteDTO noteDTO=new NoteDTO();
+    public ModelAndView noteDetail(Map map, @RequestParam(value = "id") String id) {
+        NoteDTO noteDTO = new NoteDTO();
         noteDTO.setId(id);
-        NotePO notePO=noteService.listNote(noteDTO).get(0);
-        map.put("notePO",notePO);
+        NotePO notePO = noteService.listNote(noteDTO).get(0);
+        map.put("notePO", notePO);
         return new ModelAndView("/noteDetail");
     }
 }

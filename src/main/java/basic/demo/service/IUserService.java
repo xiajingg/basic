@@ -1,5 +1,6 @@
 package basic.demo.service;
 
+import basic.demo.po.UserDTO;
 import basic.demo.po.UserInfoPO;
 import basic.demo.po.UserPO;
 import basic.demo.po.UserRolePO;
@@ -14,7 +15,7 @@ public interface IUserService {
 
     int save(UserPO userPO);
 
-    List<UserPO> listUser();
+    List<UserPO> listUser(UserDTO userDTO);
 
     List<UserRolePO> getUserRoleInfos(Map params);
 

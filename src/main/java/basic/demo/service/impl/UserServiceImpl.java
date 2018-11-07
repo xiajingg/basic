@@ -2,6 +2,7 @@ package basic.demo.service.impl;
 
 
 import basic.demo.dao.IUserDAO;
+import basic.demo.po.UserDTO;
 import basic.demo.po.UserInfoPO;
 import basic.demo.po.UserPO;
 import basic.demo.po.UserRolePO;
@@ -34,8 +35,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public List<UserPO> listUser() {
-        return userDAO.listUser();
+    public List<UserPO> listUser(UserDTO userDTO) {
+        return userDAO.listUser(userDTO);
     }
 
     @Override
