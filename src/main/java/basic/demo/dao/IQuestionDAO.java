@@ -1,6 +1,8 @@
 package basic.demo.dao;
 
+import basic.demo.po.QuestionDTO;
 import basic.demo.po.QuestionPO;
+import org.springframework.stereotype.Repository;
 
 
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.List;
  * listUser查询所有 不需要形参 但是数据库会返回给你查询的所有东西, 所以前面有个List<UserPO> 接收返回值
  * 看完就去resources文件夹下的 mapper文件下的 UserMapper
  */
+@Repository
 public interface IQuestionDAO {
 
     /**
@@ -27,5 +30,5 @@ public interface IQuestionDAO {
      */
     int save(QuestionPO questionPO);
 
-    List<QuestionPO> listQuestion();
+    List<QuestionPO> listQuestion(QuestionDTO questionDTO);
 }

@@ -80,7 +80,7 @@ function doApi() {
     $.ajax({
         url: "/doCreateQuestion",
         type: "POST",
-        data: $("#cipherdata").serialize(),
+        data: $("#cipherdata").serialize(), //$("#cipherdata").serialize() 获取id为cipherdata的表单里面所有输入框的值 以键值对保存, 键是 name的值, 值是输入进去的东西
         success: function (data) {
             if (data.data=="error"){
                 alert("error");

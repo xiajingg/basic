@@ -2,6 +2,7 @@ package basic.demo.service.impl;
 
 
 import basic.demo.dao.IQuestionDAO;
+import basic.demo.po.QuestionDTO;
 import basic.demo.po.QuestionPO;
 import basic.demo.service.IQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class QuestionServiceImpl implements IQuestionService {
     }
 
     @Override
-    public List<QuestionPO> listQuestion() {
-        return questionDAO.listQuestion();
+    public List<QuestionPO> listQuestion(QuestionDTO questionDTO) {
+        return questionDAO.listQuestion(questionDTO);
     }
 }

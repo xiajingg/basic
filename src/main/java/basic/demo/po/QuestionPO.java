@@ -1,5 +1,7 @@
 package basic.demo.po;
 
+import java.util.Date;
+
 /**
  *  model 标准的分为很多种这里首先介绍一种关联数据库的叫PO
  *
@@ -16,10 +18,10 @@ public class QuestionPO {
     private String qid;
     private String title;
     private String text;
-    private String qtime;
+    private Date qtime;
     private String rid;
     private String rcontent;
-    private String rtime;
+    private Date rtime;
 
     public String getId() {
         return id;
@@ -53,13 +55,7 @@ public class QuestionPO {
         this.text = text;
     }
 
-    public String getQtime() {
-        return qtime;
-    }
 
-    public void setQtime(String qtime) {
-        this.qtime = qtime;
-    }
 
     public String getRid() {
         return rid;
@@ -77,11 +73,19 @@ public class QuestionPO {
         this.rcontent = rcontent;
     }
 
-    public String getRtime() {
+    public Date getQtime() {
+        return qtime;
+    }
+
+    public void setQtime(Date qtime) {
+        this.qtime = qtime;
+    }
+
+    public Date getRtime() {
         return rtime;
     }
 
-    public void setRtime(String rtime) {
+    public void setRtime(Date rtime) {
         this.rtime = rtime;
     }
 }

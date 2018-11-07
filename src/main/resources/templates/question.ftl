@@ -40,7 +40,7 @@
                             <#list questionPOS as questionPO>
                                 <a href="/questionDetail?id=${questionPO.id}">
                                     <div class="card-header">
-                                        <strong>${questionPO.time?string("yyyy-MM-dd")} / ${questionPO.title} / ${questionPO.qid}</strong>
+                                        <strong>${questionPO.qtime?string("yyyy-MM-dd")} / ${questionPO.title!} / ${questionPO.qid}</strong>
                                     </div>
 
                                 </a>

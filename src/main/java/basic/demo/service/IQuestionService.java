@@ -1,5 +1,6 @@
 package basic.demo.service;
 
+import basic.demo.po.QuestionDTO;
 import basic.demo.po.QuestionPO;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface IQuestionService {
 
     int save(QuestionPO questionPO);
 
-    List<QuestionPO> listQuestion();
+    List<QuestionPO> listQuestion(QuestionDTO questionDTO);
 }
