@@ -1,10 +1,10 @@
 package basic.demo.po;
 
 import java.util.Date;
+// 定义公有类TaskDTO
+public class TaskDTO {
 
-public class TaskPO {
-//    定义公有类TaskPO
-
+//    定义字段名
     private String id;
     private String userid;
     private String taskContent;
@@ -14,9 +14,8 @@ public class TaskPO {
     private Date submitTime;
     private String acptid;
     private Date acceptTime;
-//    定义字段名
-//    通过get,set方法确定这些字段是可以调用的
 
+//    通过get,set方法,使字段可以调用
     public String getId() {
         return id;
     }
