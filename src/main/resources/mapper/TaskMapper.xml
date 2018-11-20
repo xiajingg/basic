@@ -6,31 +6,37 @@
 <mapper namespace="basic.demo.dao.ITaskDAO">
 
     <!-- insert插入方法  id是什么, dao里面的方法名就是什么, 这里id是 save, dao里面肯定也有一个save方法-->
-    <!-- 里面的 insert into 语句是sql语句  后面的values就这么写, 比如你穿过来id是1 这个#{id} 就是1 保存到数据库去-->
+    <!-- 里面的 insert into 语句是sql语句  后面的values就这么写, 比如你传过来id是1 这个#{id} 就是1 保存到数据库去-->
     <insert id="save" useGeneratedKeys="true" parameterType="basic.demo.po.TaskPO">
-             insert into note(id,title,text,time,userid)
-                    values(#{id},#{title},#{text},#{time},#{userid})
+             insert into task(id,userid,task_content,publish_time,reid,version_num,submit_time,acptid,accept_time)
+                    values(#{id},#{userid},#{taskContent},#{publishTime},#{reid},#{versionNum},#{submitTime},#{acptid},#{acceptTime})
     </insert>
 
     <!--select查询方法 同样 id listTask
          resultMap : 查询后数据库会返回你查出来的东西给你, 这个时候你就得用一个东西去接收 ,这里用TaskMap接收, 就是最下面一块 -->
-    <select id="listNote" resultMap="NoteMap">
-        SELECT * FROM note
+    <select id="listTask" resultMap="TaskMap">
+        SELECT * FROM task
         <where>
             <if test="id!=null and id!=''">
                and id=#{id}
             </if>
         </where>
-        order by time desc;
+        order by publish_time desc;
     </select>
 
-    <!-- 这里的 id, 就是给上面用的id . 如果里面你少些了一个. 比如少写了email, 数据库虽然会返回给你, 但是你最后是看不到的-->
-    <!-- 看完后 到service 文件夹下的 IUserService-->
-    <resultMap id="NoteMap" type="basic.demo.po.NotePO">
+    <!-- 这里的 id, 就是给上面用的id . 如果里面你少些了一个. 比如少写了reid, 数据库虽然会返回给你, 但是你最后是看不到的.就是给数据库返回的值位置去接收,如果没有事先给你留位置,
+    那数据库查询后返回值是不知道放在哪的-->
+    <!--前边一列指的是数据库字段,后边一列是PO里-->
+    <!-- 看完后 到service 文件夹下的 ITaskService-->
+    <resultMap id="TaskMap" type="basic.demo.po.TaskPO">
         <result property="id" column="id"/>
-        <result property="title" column="title"/>
-        <result property="text" column="text"/>
-        <result property="time" column="time"/>
         <result property="userid" column="userid"/>
+        <result property="task_content" column="taskContent"/>
+        <result property="publish_time" column="publishTime"/>
+        <result property="reid" column="reid"/>
+        <result property="version_num" column="versionNum"/>
+        <result property="submit_time" column="submitTime"/>
+        <result property="acptid" column="acptid"/>
+        <result property="accept_time" column="acceptTime"/>
     </resultMap>
 </mapper>
